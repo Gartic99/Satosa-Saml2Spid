@@ -1,0 +1,17 @@
+{% extends "bootstrap-italia-base.html" %}
+{% load i18n %}
+
+{% block header_slim_buttons %}
+    <div class="it-access-top-wrapper">
+        <button class="btn btn-primary btn-sm" href="" type="button">
+            {% if not user.is_authenticated %}
+                <a href={{LOGIN_URL}}>
+                    {% trans "Accedi" %}
+                </a>
+            {% else %}
+                <a href={{LOGOUT_URL}}>{% trans "Esci" %}</a>
+            {% endif %}
+            
+        </button>
+    </div>
+{% endblock header_slim_buttons %}

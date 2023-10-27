@@ -25,7 +25,10 @@ INSTALLED_APPS = [
     # SAML2 SP
     'djangosaml2',
     'saml2_sp',
-    'djangosaml2_sp'
+    'djangosaml2_sp',
+
+    #bootstrap_italia_template
+    'bootstrap_italia_template'
 ]
 
 AUTH_USER_MODEL = 'custom_accounts.User'
