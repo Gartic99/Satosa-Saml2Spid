@@ -31,7 +31,6 @@ logger = logging.getLogger('djangosaml2')
 def index(request):
     """ Barebone 'diagnostics' view, print user attributes if logged in + login/logout links.
     """
-    breakpoint()
     context = {
         "user" :  request.user,
         "LOGOUT_URL" : settings.LOGOUT_URL,

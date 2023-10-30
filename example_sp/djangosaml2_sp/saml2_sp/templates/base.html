@@ -6,8 +6,25 @@
 {% block extra_head %}
 <link rel="stylesheet" href="{% static 'css/bootstrap-italia-comuni.min.css' %}">
 {% endblock extra_head %}
-{% block header_slim_buttons %}
 
+{% block header_slim_org_name %}
+Nome della Regione
+{% endblock header_slim_org_name %}
+{% block header_slim_mobile_org_name %}
+Nome del Comune
+{% endblock header_slim_mobile_org_name %}
+{% block header_center_org_name %}
+Nome del Comune
+{% endblock header_center_org_name %}
+{% block header_center_org_subname %}
+Sottotitolo del Comune
+{% endblock header_center_org_subname %}
+
+{% block header_mobile_slim_menu %}
+
+{% endblock header_mobile_slim_menu %}
+
+{% block header_slim_buttons %}
 <div class="it-access-top-wrapper">
     {% if not user.is_authenticated %}
     <a class="btn btn-primary btn-icon btn-full" href={{LOGIN_URL}} title="Accedi all'area personale" aria-label="Accedi all'area personale" data-focus-mouse="false">
@@ -23,3 +40,12 @@
   </a>
 </div>
 {% endblock header_slim_buttons %}
+
+
+{% block menu_links %}
+<li class="nav-item active"><a class="nav-link active" href="#"><span>Amministrazione</span><span class="visually-hidden">current</span></a></li>
+<li class="nav-item"><a class="nav-link" href="#"><span>Novità</span></a></li>
+<li class="nav-item"><a class="nav-link" href="#"><span>Servizi</span></a></li>
+<li class="nav-item"><a class="nav-link" href="#"><span>Documenti e Dati</span></a></li>
+
+{% endblock menu_links %}
