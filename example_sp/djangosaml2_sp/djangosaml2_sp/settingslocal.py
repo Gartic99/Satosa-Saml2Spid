@@ -28,9 +28,14 @@ INSTALLED_APPS = [
     'djangosaml2_sp',
 
     #bootstrap_italia_template
-    'bootstrap_italia_template'
+    'bootstrap_italia_template',
+    'sass_processor'
 ]
-
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'sass_processor.finders.CssFinder'
+]
 AUTH_USER_MODEL = 'custom_accounts.User'
 
 LOGGING = {

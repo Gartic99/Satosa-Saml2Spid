@@ -1,17 +1,25 @@
 {% extends "bootstrap-italia-base.html" %}
 {% load i18n %}
+{% load static %}
 
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/bootstrap-italia-comuni.min.css' %}">
+{% endblock extra_head %}
 {% block header_slim_buttons %}
-    <div class="it-access-top-wrapper">
-        <button class="btn btn-primary btn-sm" href="" type="button">
-            {% if not user.is_authenticated %}
-                <a href={{LOGIN_URL}}>
-                    {% trans "Accedi" %}
-                </a>
-            {% else %}
-                <a href={{LOGOUT_URL}}>{% trans "Esci" %}</a>
-            {% endif %}
-            
-        </button>
-    </div>
+
+<div class="it-access-top-wrapper">
+    {% if not user.is_authenticated %}
+    <a class="btn btn-primary btn-icon btn-full" href={{LOGIN_URL}} title="Accedi all'area personale" aria-label="Accedi all'area personale" data-focus-mouse="false">
+    {%else%}
+    <a class="btn btn-primary btn-icon btn-full" href={{LOGOUT_URL}} title="{{user.nome}}" aria-label="{{user.nome}}" data-focus-mouse="false">
+    {% endif %}  
+    <span class="rounded-icon">
+      <svg class="icon icon-primary">
+        <use xlink:href="{% static 'svg/sprites.svg#it-user' %}"></use>
+      </svg>
+    </span>
+    <span class="d-none d-lg-block">Accedi all'area personale</span>
+  </a>
+</div>
 {% endblock header_slim_buttons %}
