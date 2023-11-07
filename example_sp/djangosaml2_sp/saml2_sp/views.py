@@ -26,18 +26,19 @@ from .utils import repr_saml
 
 
 logger = logging.getLogger('djangosaml2')
-
-
-def index(request):
-    """ Barebone 'diagnostics' view, print user attributes if logged in + login/logout links.
-    """
-    context = {
-        "user" :  request.user,
+context = {
         "LOGOUT_URL" : settings.LOGOUT_URL,
         "LOGIN_URL" : settings.LOGIN_URL
     }
 
+def index(request):
+    """ Barebone 'diagnostics' view, print user attributes if logged in + login/logout links.
+    """
+    context["user"] = request.user
     return render(request,"base.html",context)
+def amministrazione(request):
+    context["user"] = request.user
+    return render(request,"amministrazione.html",context)
 
 
 # TODO fix this in IdP side?
